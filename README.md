@@ -1,4 +1,5 @@
 <h1 align="center"> Hacktoberfest 2021 </h1>
+<h4 align="center"> Get start by simple easy clonning any websites or apps </h4>
 <img src="https://hacktoberfest.digitalocean.com/share-card.png">
 
 ***
@@ -13,12 +14,13 @@
 
 ## Rules To Contribute To This Repo
 
--   Any C,C++,PHP,PY,Sh,JAVA,RUBY,JAVASC, Etc.. 
--   Or Contrubute any tool / pages
--   Anything valuable.
+-   Just Choosse any easy app or website to clone 
+-   Upload the coded file in correct folder with correct way
+-   You can use Google, Youtube or any other open source
   
 
 ## Steps For Contribution
+<img src="https://github.com/shrishail356/Hactoberfest-First-PR/blob/main/Images/Steps%20to%20Clone.png">
 
     1. Fork this repo
     2. Star this repo
