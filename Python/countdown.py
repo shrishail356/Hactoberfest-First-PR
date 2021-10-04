@@ -10,3 +10,7 @@ def countdown(time_sec):
         time_sec -= 1
 
     print("stop")
+
+time_sec = input("Enter the time in seconds: ")
+
+countdown(int(time_sec))
