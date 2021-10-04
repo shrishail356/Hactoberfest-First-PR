@@ -11,4 +11,7 @@ def countdown(time_sec):
         # print(min,sec);
 
     print("stop")
-countdown(10)
+
+time_sec = input("Enter the time in seconds: ")
+
+countdown(int(time_sec))
