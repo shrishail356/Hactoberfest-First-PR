@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        label, input, button{
+            font-size: 24px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        input{
+            width: 250px;
+            border: 2px solid blue;
+            color: blue;
+        }
+        button{
+            width: 200px;
+            border: 3px solid blue;
+            border-radius: 15px;
+            background-color: white;
+            font-weight: 700;
+            color: blue;
+        }
+        button:hover{
+            color: white;
+            background-color: blue;
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="/" method="POST">
+        <h1 style="color: white;">Get weather details at your own location</h1>
+        <label style="color: yellow;"><b>Enter Your Pin Code Below</b></label>
+        <br>
+        <div>
+            <input type="text" name="Pincode" id="Pincode"> 
+            <button type="submit">Find Weather</button>
+        </div>
+    </form>
+</body>
+</html>
