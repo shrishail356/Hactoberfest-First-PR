@@ -8,6 +8,7 @@ def countdown(time_sec):
         print(timeformat, end='\r')
         time.sleep(1)
         time_sec -= 1
+        # print(min,sec);
 
     print("stop")
 
