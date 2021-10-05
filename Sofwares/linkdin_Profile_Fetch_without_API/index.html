@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hacktoberfest-2021</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+
+<body>
+    <div class="card" style="margin: 22px;border-style: none;box-shadow: 0px 18px 80px rgba(0,0,0,0.22);">
+        <div class="card-body">
+            <div style="text-align: center;"><i class="icon ion-social-linkedin" style="color: var(--bs-blue);font-size: 52px;"></i></div>
+            <h1 style="font-size: 20.4px;text-align: center;"><strong>Linkedin-Profile-Data-Fetch-Without-API</strong><br></h1>
+        </div>
+    </div>
+    <div class="card" style="margin: 22px;border-style: none;box-shadow: 0px 18px 80px rgba(0,0,0,0.22);">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <form><input class="form-control" type="text" id="lknid" placeholder="LInkdin Username"><button  onclick="getData(lknid.value)" class="btn btn-primary" type="button" style="margin: 2px;margin-left: 100px;margin-top: 8px;">Search</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="output" style="padding: 12px;">
+
+      </div>
+    </div>
+
+
+    <div class="card" style="margin: 25px;border-style: none;box-shadow: 0px 18px 80px rgba(0,0,0,0.22);">
+        <div class="card-body">
+            <h1 style="text-align: center;font-size: 11.64px;">Hacktoberfest-2021 @<a href="https://github.com/codersalman">CoderSalman</a></h1>
+        </div>
+    </div>
+
+        <div id="hideBadgeElm" style="display: none;"></div>
+
+
+            <script>
+                let linkedinid = "";
+                let badgeElm = document.getElementById("hideBadgeElm");
+                let waitObserver;
+
+                function getData(lknid) {
+                    linkedinid = lknid;
+                    badgeElm.innerHTML = `<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="${linkedinid}" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/${linkedinid}?trk=profile-badge">.</a></div>`;
+                    loadProfileJs();
+                }
+
+                function loadProfileJs() {
+                    var script = document.createElement("script");
+                    script.onload = function () {
+                        waitObserver = setInterval(domObserve, 1000);
+                    };
+                    script.src = "https://platform.linkedin.com/badges/js/profile.js";
+                    document.head.appendChild(script);
+                }
+
+                function domObserve() {
+                    let state = badgeElm.querySelector(".LI-profile-badge .profile-badge__header");
+                    if (state) {
+                        clearInterval(waitObserver);
+                        console.log(state);
+                        let json = {
+                            id: linkedinid,
+                            img: "#",
+                            name: "Not available",
+                            title: "Not available",
+                            info: "Not available",
+                        };
+
+                        if (badgeElm.querySelector("img.profile-badge__content-profile-image")) {
+                            json.img = badgeElm.querySelector("img.profile-badge__content-profile-image").src;
+                        }
+
+                        if (badgeElm.querySelector(".profile-badge__content-profile-name")) {
+                            json.name = badgeElm.querySelector(".profile-badge__content-profile-name").innerText;
+                        }
+
+                        if (badgeElm.querySelector(".profile-badge__content-profile-headline")) {
+                            json.title = badgeElm.querySelector(".profile-badge__content-profile-headline").innerText;
+                        }
+
+                        if (badgeElm.querySelector(".profile-badge__content-profile-company-school-info")) {
+                            json.info = badgeElm.querySelector(".profile-badge__content-profile-company-school-info").innerText;
+                        }
+
+                        console.log(json);
+                        showData(json);
+                    }
+                }
+
+                function showData(json) {
+
+                let tmp = `<div class="card" style="margin: 24px;border-style: none;box-shadow: 0px 18px 80px rgba(0,0,0,0.22);">
+                    <div class="card-body">
+                        <div style="text-align: center;"><img src="${json.img}" style="height: 113px; border-radius:55px;"></div>
+                        <h4 class="card-title" style="text-align: center;margin-top: 12px;">${json.name}</h4>
+                        <h6 class="text-muted card-subtitle mb-2" style="text-align: center;">	${json.title.split(',')[0].split('at')[0]}</h6>
+                        <p class="card-text" style="text-align: center;">${json.info}</p>
+                        <div style="text-align: center;"><a href="https://www.linkedin.com/in/${json.id}" style=" text-decoration:none; text-align: center;"><i class="icon ion-social-linkedin"></i>    ${json.id}</a></div>
+                    </div>
+                </div>
+`;
+
+                 output.innerHTML += tmp;
+                  if (idx < lkList.length) getData();
+              }
+            </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
