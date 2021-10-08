@@ -1,0 +1,150 @@
+/* Import Google font - Poppins & Noto */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #7D2AE8;
+}
+::selection{
+  color: #fff;
+  background: #7D2AE8;
+}
+form{
+  width: 450px;
+  background: #fff;
+  padding: 30px ;
+  border-radius: 5px;
+  box-shadow: 10px 10px 13px rgba(0,0,0,0.1);
+}
+form header{
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #7D2AE8;
+}
+form .url-input{
+  margin: 30px 0;
+}
+.url-input .title{
+  font-size: 18px;
+  color: #373737;
+}
+.url-input .field{
+  margin-top: 5px;
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+.url-input .field input{
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  font-size: 15px;
+  background: #F1F1F7;
+  border-bottom: 2px solid #ccc;
+  font-family: 'Noto Sans', sans-serif;
+}
+.url-input .field input::placeholder{
+  color: #b3b3b3;
+}
+.url-input .field .bottom-line{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #7D2AE8;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+.url-input .field input:focus ~ .bottom-line,
+.url-input .field input:valid ~ .bottom-line{
+  transform: scale(1);
+}
+form .preview-area{
+  border-radius: 5px;
+  height: 220px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px dashed #8e46ec;
+}
+.preview-area.active{
+  border: none;
+}
+.preview-area .thumbnail{
+  width: 100%;
+  display: none;
+  border-radius: 5px;
+}
+.preview-area.active .thumbnail{
+  display: block;
+}
+.preview-area.active .icon,
+.preview-area.active span{
+  display: none;
+}
+.preview-area .icon{
+  color: #8e46ec;
+  font-size: 80px;
+}
+.preview-area span{
+  color: #8e46ec;
+  margin-top: 25px;
+}
+form .download-btn{
+  color: #fff;
+  height: 53px;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 30px 0 20px 0;
+  border-radius: 5px;
+  background: #7D2AE8;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+.download-btn:hover{
+  background: #6616d0;
+}
+@media screen and (max-width: 460px){
+  body{
+    padding: 0 20px;
+  }
+  form header{
+    font-size: 24px;
+  }
+  .url-input .field,
+  form .download-btn{
+    height: 45px;
+  }
+  form .download-btn{
+    font-size: 15px;
+  }
+  form .preview-area{
+    height: 130px;
+  }
+  .preview-area .icon{
+    font-size: 50px;
+  }
+  .preview-area span{
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
