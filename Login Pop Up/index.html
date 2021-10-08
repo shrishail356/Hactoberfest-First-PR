@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp and Login</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+        <script src="index.js" ></script>
+
+    </head>
+    <body>
+    
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+
+        <form action="">
+            <h1 class="webikraft">We are Webikraft</h1>
+            
+            <span>or use your email for registration</span>
+	
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>Sign In</h1>
+            <input id="email" type="email" name="email" placeholder="Email"/>
+            <input id="password" type="password" name="password" placeholder="Password"/>
+        <br>
+	<button onclick="signIn()" id="sign">Sign In</button>
+</form>
+</div>
+<div class="overlay-container">
+    <div class="overlay">
+        <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+			<p>To keep connected with us please login with your personal info</p>
+			<button class="ghost" id="signin">Sign In</button>
+		</div>
+		<div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+			<p>Enter your details and start journey with us</p>
+			<button class="ghost" id="signUp">Sign Up</button>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signin');
+	const container = document.getElementById('container');
+    
+	signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+	});
+	signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+	});
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
