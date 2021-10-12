@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+body{
+  min-height: 1000px;
+  color: white;
+  background-color: black;
+}
+
+.title{
+  text-align: center;
+  width: 100vw;
+  font-size: 30px;
+  background-color: rgb(19, 140, 196);
+}
+
+:root{
+  --cell:100px;
+  --mark:calc(var(--cell)*0.9);
+}
+.box {
+  margin-top: 110px;
+  background-color: black;
+  width: 100vw;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto)
+}
+
+.minibox{
+  width: 100px;
+  height:100px;
+  border: 5px solid white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.minibox.x::before,.minibox.x::after{
+  content:'';
+  position: absolute;
+  width: calc(var(--mark)*0.15);
+  height: var(--mark);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.minibox.x::before,.box.x.minibox:hover::before{
+  transform: rotate(45deg);
+}
+
+.minibox.x::after,.box.x.minibox:hover::after{
+  transform: rotate(-45deg);
+}
+
+.minibox.o::before{
+  content:'';
+  position: absolute;
+  width: var(--mark);
+  height: var(--mark);
+  background-color: white;
+  border-radius: 50%;
+}
+.minibox.o::after{
+  content:'';
+  position: absolute;
+  width: calc(var(--mark)*0.71);
+  height: calc(var(--mark)*0.75);
+  background-color: black;
+  border-radius: 50%;
+}
+
+.minibox.x,.minibox.o{
+  cursor: not-allowed;
+}
+
+.controls{
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin-left: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls{
+  font-size: 20px;
+}
+
+.win{
+  width: 100px;
+  height: 100px;
+  border-radius: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls .reset{
+  margin-top: 20%;
+  width: 100px;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+.minibox:first-child,.minibox:nth-child(2),.minibox:nth-child(3)
+{
+  border-top: none;
+}
+.minibox:nth-child(9),.minibox:nth-child(7),.minibox:nth-child(8)
+{
+  border-bottom: none;
+}
+.minibox:nth-child(3n+1)
+{
+  border-left: none;
+}
+.minibox:nth-child(3n+3)
+{
+  border-right: none;
+}
+
