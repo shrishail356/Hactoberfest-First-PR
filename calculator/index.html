@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      html,
+      body {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>Calculator</h1></center>
+    <center>
+      <div class="wrap" style="margin-top: 200px">
+        <form name="calci">
+          <br />
+          <input type="text" name="display" style="width: 100px" />
+          <br />
+          <br />
+          <input type="button" value="9" onclick="calci.display.value+='9'" />
+          <input type="button" value="8" onclick="calci.display.value+='8'" />
+          <input type="button" value="7" onclick="calci.display.value+='7'" />
+          <input type="button" value="+" onclick="calci.display.value+='+'" />
+          <br />
+          <br />
+          <input type="button" value="6" onclick="calci.display.value+='6'" />
+          <input type="button" value="5" onclick="calci.display.value+='5'" />
+          <input type="button" value="4" onclick="calci.display.value+='4'" />
+          <input type="button" value="-" onclick="calci.display.value+='-'" />
+          <br />
+          <br />
+          <input type="button" value="3" onclick="calci.display.value+='3'" />
+          <input type="button" value="2" onclick="calci.display.value+='2'" />
+          <input type="button" value="1" onclick="calci.display.value+='1'" />
+          <input type="button" value="*" onclick="calci.display.value+='*'" />
+          <br />
+          <br />
+          <input type="button" value="0" onclick="calci.display.value+='0'" />
+          <input type="button" value="/" onclick="calci.display.value+='/'" />
+          <input type="button" value="%" onclick="calci.display.value+='%'" />
+          <input
+            type="button"
+            value="="
+            onclick="calci.display.value = eval(calci.display.value)"
+          />
+        </form>
+      </div>
+    </center>
+  </body>
+</html>
