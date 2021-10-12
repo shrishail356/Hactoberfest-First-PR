@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    margin: 0 auto;
+
+}
+
+
+.game-container {
+    width: 500px;
+    height: 730px;
+    position: absolute;
+    left: 80px;
+}
+.border-left {
+    width: 80px;
+    height: 790px;
+    position: absolute;
+   background-color: white;
+   z-index: +2;
+}
+.border-right {
+    width: 80px;
+    height: 790px;
+    position: absolute;
+   background-color: white;
+   z-index: +2;
+   left: 580px;
+}
+.border-top {
+    width: 660px;
+    height: 50px;
+    position: absolute;
+   background-color: white;
+   z-index: +2;
+   top: -50px;
+}
+.sky {
+    background-image: url('images/image1.png');
+    width: 500px;
+    height: 580px;
+    position: absolute;
+}
+.ground {
+    background-image: url('images/bottom.png');
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    top: 580px;
+    z-index: +1;
+}
+.bird {
+    background-image: url('images/flappy-bird.png');
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    /* border-radius: 40%; */
+}
+
+.obstacle {
+    background-image: url('images/flappybird-pipe.png');
+    width: 60px;
+    height: 310px;
+    position: absolute;
+}
+.topObstacle {
+    background-image: url('images/flappybird-pipe.png');
+    transform: rotate(180deg);
+    width: 60px;
+    height: 300px;
+    position: absolute;
+}
+
+#endgame {
+    padding-left: 30px;
+     padding-top: 100px;
+      width: 70px;
+    height: 47px;
+    color: #ffffff;
+     position: relative; 
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 80px;
+     z-index: 10;
+
+}
