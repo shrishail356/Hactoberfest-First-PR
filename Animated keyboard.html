@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="eng" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Keyboard Animation </title>
+	<style type="text/css">
+		*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+
+}
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	flex-direction: column;
+	background: #dde1e7;
+}
+.container{
+	width: 60%;
+}
+.container .wrapper{
+	min-width: 750px;
+	max-width: 1000px;
+	border-radius: 10px;
+	padding: 25px;
+	background: #dde1e7;
+	box-shadow: -3px -3px 7px #ffffff73,
+				2px 2px 5px rgba(94,104,121,0.288);	
+}
+.wrapper .keys{
+	display: flex;
+	justify-content: center;
+}
+.wrapper .keys input{
+	height: 50px;
+	min-width: 50px;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	font-size: 20px;
+	color: gray;
+	text-transform: uppercase;
+	box-shadow: -3px -3px 7px #ffffff73,
+				2px 2px 5px rgba(94,104,121,0.288);	
+}
+.wrapper .keys input[value="space"]{
+	width: 60%;
+}
+.wrapper .keys input:hover{
+	font-size: 19px;
+	color: #3498db;
+	box-shadow: inset -3px -3px 7px #ffffff73,
+				inset  2px 2px 5px rgba(94,104,121,0.288);	
+}
+.wrapper .keys input:focus{
+	font-size: 19px;
+	color: #3498db;
+	box-shadow: inset -3px -3px 7px #ffffff73,
+				inset  2px 2px 5px rgba(94,104,121,0.288);	
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="wrapper">
+		 <div class="keys">
+			<input type="button" value="q" >
+			<input type="button" value="w" >
+			<input type="button" value="e" >
+			<input type="button" value="r" >
+			<input type="button" value="t" >
+			<input type="button" value="y" >
+			<input type="button" value="u" >
+			<input type="button" value="i" >
+			<input type="button" value="o" >
+			<input type="button" value="p" >
+		</div>
+		<div class="keys">
+			<input type="button" value="a" >
+			<input type="button" value="s" >
+			<input type="button" value="d" >
+			<input type="button" value="f" >
+			<input type="button" value="g" >
+			<input type="button" value="h" >
+			<input type="button" value="j" >
+			<input type="button" value="k" >
+			<input type="button" value="l" >
+		</div>
+		<div class="keys">
+			<input type="button" value="z" >
+			<input type="button" value="x" >
+			<input type="button" value="c" >
+			<input type="button" value="v" >
+			<input type="button" value="b" >
+			<input type="button" value="n" >
+			<input type="button" value="m" >
+		</div>
+		<div class="keys">
+			<input type="button" value="space" >
+		</div>
+	</div>
+</div>
+</body>
+</html>
