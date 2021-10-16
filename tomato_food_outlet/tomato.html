@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bowlby+One+SC&family=Rampart+One&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">	<style>
+		* {
+			margin: 0;
+			scroll-behavior: smooth;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		:root {
+			--pix10: 10px;
+			--pix40: 40px;
+			--pix60: 60px;
+			--pix80: 80px;
+		}
+
+		.ham-menu {
+			position: fixed;
+			right: 0;
+			margin: var(--pix80);
+			display: flex;
+			flex-direction: column;
+			z-index: 105;
+			visibility: hidden;
+		}
+
+		.ham-menu>span {
+			transition: 0.3s;
+			width: 25px;
+			height: 4px;
+			margin: 2px;
+			background-color: white;
+		}
+
+		.stick1{
+			transform: rotate(45deg);
+			position: absolute;
+		}
+		.stick2{
+			opacity: 0;
+		}
+		.stick3{
+			transform: rotate(-45deg);
+			position: absolute;
+		}
+
+		.stick{
+			transform: rotate(0);
+			position: static;
+			opacity: 1;
+		}
+
+		nav {
+			position: relative;
+			background-color: transparent;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: var(--pix40) var(--pix80);
+			width: 100%;
+			box-sizing: border-box;
+			position: fixed;
+			top: 0;
+			color: white;
+			z-index: 101;
+			text-shadow: 1px 1px 5px black;
+			transition: 0.4s;
+			background-color: transparent;
+		}
+
+		.nav-after {
+			background-color: #333;
+			padding: var(--pix10) var(--pix60);
+		}
+
+		.logo a{
+			font-size: 34px;
+			color: white;
+			font-family: 'Audiowide', cursive;
+			text-decoration: none;
+		}
+
+		.logo span {
+			color: deepskyblue;
+			font-weight: bold;
+		}
+
+		.navlinks {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 40%;
+			min-width: 380px;
+		}
+
+		.navlinks>a {
+			color: white;
+			text-decoration: none;
+		}
+
+		.navlinks>a:hover {
+			color: deepskyblue;
+		}
+
+		.main-header {
+			background-image: url('salad.jpg');
+			min-height: 100vh;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: white;
+		}
+
+		.header-head {
+			font-size: 3em;
+			font-family: 'Bowlby One SC', cursive;
+
+			color: white;
+			text-shadow: 2px 2px 10px #000;
+			text-align: center;
+		}
+
+		.header-text {
+			font-size: 1.1em;
+			text-align: center;
+			width: 80%;
+			max-width: 800px;
+			margin-top: var(--pix10);
+		}
+
+		.our-menu-btn {
+			background-color: deepskyblue;
+			border: none;
+			font-size: 1.5em;
+			padding: var(--pix10) 25px;
+			color: white;
+			margin-top: 20px;
+			transition: 0.3s;
+		}
+
+		.our-menu-btn:hover {
+			letter-spacing: 3px;
+		}
+
+		.about-us {
+			display: flex;
+			padding: var(--pix80);
+		}
+
+		.about {
+			flex: 1;
+			text-align: justify;
+			padding-right: var(--pix10);
+			box-sizing: border-box;
+		}
+
+		.about>h1 {
+			font-weight: 100;
+		}
+
+		.colorize {
+			font-weight: 900;
+			font-size: 1.3em;
+			color: deepskyblue;
+		}
+
+		.about-img {
+			flex: 1;
+			background: url('pizza.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.our-menu-head>h1 {
+			padding-top: var(--pix80);
+		}
+
+		.our-menu-head>h1,
+		.our-menu-head>p {
+			font-weight: 100;
+			text-align: center;
+		}
+
+		.our-menu {
+			display: grid;
+			padding: var(--pix40) var(--pix80);
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 2em;
+		}
+
+		.recipes {
+			box-shadow: 0px 0px 10px lightgray;
+			background-color: white;
+			text-align: center;
+			padding: 1em;
+			transition: 0.3s;
+		}
+
+		.recipe-img>img {
+			width: 100%;
+			height: auto;
+		}
+
+		.recipes:hover {
+			transform: scale(1.1) rotate(5deg);
+
+		}
+
+
+		.experts {
+			display: grid;
+			margin: var(--pix40) var(--pix80);
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-gap: 1.5em;
+		}
+
+		.person {
+			text-align: center;
+			transition: 0.3s;
+		}
+
+		.person-img>img {
+			width: 100%;
+		}
+
+		.person-img>img:hover {
+			transform: scale(1.1);
+		}
+
+		.review-section {
+			background: url('salad2.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			padding: var(--pix80);
+		}
+
+		.reviews {
+			display: grid;
+			padding: var(--pix40);
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 1.5em;
+		}
+
+		.customer {
+			text-align: center;
+			transition: 0.3s;
+			background-color: white;
+			padding: 1em;
+		}
+
+		.customer-img>img {
+			width: 30%;
+			border-radius: 50%;
+		}
+
+		.customer-name {
+			color: deepskyblue;
+			font-weight: 900;
+			font-size: 105%;
+		}
+
+		.rating {
+			color: orangered;
+		}
+
+		.customer>p {
+			padding: 0.3em 0em;
+		}
+
+		.contact-us {
+			padding: var(--pix80);
+			width: 100%;
+			box-sizing: border-box;
+			background-image: url('dpool2.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.contact {
+			width: 60%;
+			margin-top: var(--pix80);
+			padding: var(--pix40);
+			box-sizing: border-box;
+			background-color: #fff;
+			box-shadow: 0px 0px 30px lightgray;
+		}
+
+		.input {
+			width: 100%;
+			box-sizing: border-box;
+			padding: var(--pix10);
+			margin: var(--pix10) 0em;
+			font-size: 1.1em;
+			resize: none;
+		}
+
+		footer {
+			width: 100%;
+			padding: 0.5em;
+			box-sizing: border-box;
+			text-align: center;
+			border-top: 1px solid #ddd;
+		}
+
+
+		@media only screen and (max-width:750px) {
+			:root {
+				--pix10: 5px;
+				--pix40: 20px;
+				--pix60: 30px;
+				--pix80: 40px;
+			}
+
+			.ham-menu {
+				visibility: visible;
+			}
+
+			.navlinks {
+				position: fixed;
+				top: 0;
+				right: 0;
+				padding: 0;
+				height: 100vh;
+				width: 100vw;
+				background-color: rgba(51, 51, 51,0.9);
+				text-shadow: none;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				transform: scale(0);
+			}
+
+			.navlinks a {
+				font-size: 2em;
+				margin: 5px;
+			}
+
+			.navlink-show {
+				transform: scale(1);
+			}
+
+			.header-head {
+				font-size: 7vw;
+			}
+
+			.about-us {
+				display: block;
+			}
+
+			.about-img {
+				width: 100%;
+				box-sizing: border-box;
+				height: 250px;
+				margin-top: var(--pix40);
+
+			}
+
+			.our-menu {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			.experts {
+			grid-template-columns: 1fr 1fr;
+		}
+		.reviews{
+			grid-template-columns: 1fr;
+
+		}
+
+		.contact{
+			width: 100%;
+		}
+
+		
+
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<nav>
+		<span class="logo"><a href="/">Tomato<span>.</span></a></span>
+
+		<ul class="navlinks">
+			<a href="#home">Home</a>
+			<a href="#about">About</a>
+			<a href="#menu">Menu</a>
+			<a href="#experts">Experts</a>
+			<a href="#reviews">Reviews</a>
+			<a href="#contact">Contact</a>
+		</ul>
+
+		<div class="ham-menu">
+			<span class="stick1 stick"></span>
+			<span class="stick2 stick"></span>
+			<span class="stick3 stick"></span>
+		</div>
+	</nav>
+
+	<div class="main-header" id="home">
+		<div class="header-head">Always Choose Good</div>
+		<div class="header-text" style="text-shadow: 1px 1px 10px #0006;">“Food for us comes from our relatives, whether they have wings or fins or roots. That is how we consider food. Food has a culture. It has a history. It has a story. It has relationships.”
+			</div>
+		<button class="our-menu-btn">OUR MENU</button>
+	</div>
+
+	<div class="about-us" id="about">
+		<div class="about">
+			<h1>About <span class="colorize">U</span>s</h1>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, reprehenderit. Ipsum voluptatem rerum
+				autem quod impedit ut quasi voluptate nostrum, earum quas laboriosam quia maiores assumenda natus
+				perferendis laudantium repellendus eveniet hic consequuntur blanditiis animi. Rem molestiae, quaerat
+				animi natus architecto saepe labore numquam omnis laudantium maxime sed fugit autem.
+				<br><br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse temporibus nesciunt, molestiae quisquam,
+				dicta magnam amet fuga soluta eius, voluptate repudiandae. Explicabo ipsum ipsam vel, eum labore
+				possimus rerum fugiat sunt consectetur totam, non necessitatibus!
+			</p>
+		</div>
+
+		<div class="about-img">
+		</div>
+	</div>
+
+
+	<div class="our-menu-head" id="menu">
+		<h1>Our <span class="colorize">M</span>enu</h1>
+		<p>Fresh from the oven.</p>
+	</div>
+
+	<div class="our-menu">
+		<div class="recipes">
+			<div class="recipe-img"><img src="./pizza2.jpg" alt=""></div>
+			<div>Special Pizza</div>
+		</div>
+		<div class="recipes">
+			<div class="recipe-img"><img src="./omelette.jpg" alt=""></div>
+			<div>Special Omelette</div>
+		</div>
+		
+		<div class="recipes">
+			<div class="recipe-img"><img src="./pasta.jpg" alt=""></div>
+			<div>Special Pasta</div>
+		</div>
+		<div class="recipes">
+			<div class="recipe-img"><img src="./coffee.jpg" alt=""></div>
+			<div>Special Coffee</div>
+		</div>
+		<div class="recipes">
+			<div class="recipe-img"><img src="./burger.jpg" alt=""></div>
+			<div>Special Burger</div>
+		</div>
+		<div class="recipes">
+			<div class="recipe-img"><img src="./muffin.jpg" alt=""></div>
+			<div>Special Muffins</div>
+		</div>
+	</div>
+
+	<button class="our-menu-btn" style="display:block;margin: auto;">VIEW ALL</button>
+
+
+	<div class="our-menu-head" id="experts">
+		<h1>Our Kitchen <span class="colorize">E</span>xperts</h1>
+		<p>The magic hands</p>
+	</div>
+	<div class="experts">
+		<div class="person">
+			<div class="person-img"><img src="./chef1.jpg" alt=""></div>
+			<div>Tirachard Kumtan</div>
+		</div>
+		<div class="person">
+			<div class="person-img"><img src="./chef2.jpg" alt=""></div>
+			<div>Andrea Piacquadio</div>
+		</div>
+		<div class="person">
+			<div class="person-img"><img src="./chef3.jpg" alt=""></div>
+			<div>-Miquel-Ferran</div>
+		</div>
+		<div class="person">
+			<div class="person-img"><img src="./chef4.jpg" alt=""></div>
+			<div>Figueroa Gomez</div>
+		</div>
+	</div>
+
+
+
+	<div class="review-section" id="reviews">
+		<div class="our-menu-head" style="color: white;">
+			<h1>That's What They <span class="colorize">S</span>aid</h1>
+			<p>People's Opinion</p>
+		</div>
+		<div class="reviews">
+			<div class="customer">
+				<div class="customer-img"><img src="dp.png" alt=""></div>
+				<p class="rating">&starf;&starf;&starf;&starf;&starf;</p>
+
+				<p>Had dinner here recently. My husband ordered the Italian calzone. It came out as a 10” size dinner portion. He claimed it was delicious. The service was excellent.</p>
+				<span class="customer-name">Alis Pazani</span>
+			</div>
+
+			<div class="customer">
+				<div class="customer-img"><img src="dp.png" alt=""></div>
+				<p class="rating">&starf;&starf;&starf;&starf;&starf;</p>
+
+				<p>We always get pizza here at least once during our summer visit. Breakfasts are hardy. All menu options are tasty- truffle fries- the best!!!</p>
+				<span class="customer-name">Nataliya Vaitkev</span>
+			</div>
+
+			<div class="customer">
+				<div class="customer-img"><img src="dp.png" alt=""></div>
+				<p class="rating">&starf;&starf;&starf;&starf;&starf;</p>
+				<p>This place knows how to satisfy their clients. Always with a super nice mindset. The food is affordably priced, always delicious and clean.</p>
+
+				<span class="customer-name">Erik Mclean</span>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="contact-us" id="contact">
+		<div class="our-menu-head">
+			<h1>contact <span class="colorize">U</span>s</h1>
+			<p>send your query here.</p>
+		</div>
+
+		<div class="contact">
+			<h3>Send Message</h3>
+			<input class="input" type="text" placeholder="Name">
+			<input class="input" type="email" placeholder="Email">
+			<textarea class="input" id="" rows="4" placeholder="Message"></textarea>
+			<input type="button" class="our-menu-btn" value="SEND">
+		</div>
+	</div>
+
+	<footer>
+		Copyright &copy; 2021 <span style="font-family: 'Audiowide', cursive; color: deepskyblue;">Tomato.</span> All Right
+		Reserved.
+	</footer>
+
+	<script>
+		window.onscroll = () => {
+			if (document.documentElement.scrollTop > 10) {
+				document.querySelector('nav').classList.add('nav-after');
+			}
+			else {
+				document.querySelector('nav').classList.remove('nav-after');
+			}
+
+		}
+
+		document.querySelector('.ham-menu').addEventListener('click', () => {
+			document.querySelector('.navlinks').classList.toggle('navlink-show');
+			document.querySelector('.stick1').classList.toggle('stick');
+			document.querySelector('.stick2').classList.toggle('stick');
+			document.querySelector('.stick3').classList.toggle('stick');
+		})
+	</script>
+</body>
+
+</html>
