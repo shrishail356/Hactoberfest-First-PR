@@ -14,7 +14,7 @@
 
 ## Rules To Contribute To This Repo
 
--   Just Choosse any easy app or website to clone 
+-   Just Choose any easy app or website to clone
 -   Upload the coded file in correct folder with correct way
 -   You can use Google, Youtube or any other open source
   
@@ -25,6 +25,6 @@
     1. Fork this repo
     2. Star this repo
     3. Add a file
-    4. commit the code
+    4. Commit the code
     5. Make pull request
 ***
