@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>Banking System </title>
+</head>
+<body>
+    <style>
+        body{
+            position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    height: 100%;
+  
+        }
+        body:before { 
+            content: "";
+    position: absolute;
+    background: url('./world-map.png');
+    background-size: cover;
+    z-index: -1; 
+    height: 20%; width: 20%;
+    transform: scale(5);
+    transform-origin: top left;
+    filter: blur(1px);}
+    </style>
+
+
+<!-- logo + navbar  -->
+<div class="container-fluid  bg-dark text-white shadow-lg sticky-top ">
+<div class="row">
+    <div class="col-sm-1 pt-3 pb-2 display-2"><i class="fas fa-university" ></i></div>
+    <div class="col-sm-9 pt-5 px-5 display-4 font-weight-bolder text-white ">  <a class="text-decoration-none" href="index.html"> TS Bank</div></a>
+    <div class="col-sm-1 pt-5 my-3"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">About Us</button></div>
+    <div class="col-sm-1 pt-5 my-3"><a target="_blank" href="https://www.rbi.org.in/Scripts/FAQDisplay.aspx"><button type="button" class="btn btn-primary" >Help</button></a></div>
+</div>
+
+</div>
+<!-- about us and help tab  -->
+<div class="container shadow-lg">
+     
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">About Developer</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p class="text-info">This site is developed by <span class="font-weight-bold">Amey Shamrao Nagmode</span> as an internship  project . <br>I am a student of Computer Engineering at GCOE , Jalgaon  . I have interests in Web Developement , Machine Learning and Data Science .<br> Feel free to  connect  me on the following social links  , I would love to hear form you .</p>
+            <a href="https://www.linkedin.com/in/amey-nagmode"><button class="btn btn-primary"><i class="fab fa-linkedin" style="font-size:24px;"></i></button></a>
+            <a href="https://www.instagram.com/amey_nagmode/"><button class="btn btn-primary"><i class="fab fa-instagram" style="font-size:24px;"></i></button></a>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+
+<!-- main -content  -->
+<div class="container my-3 p-3 bg-dark text-white rounded-lg">
+    <H3 class=" font-weight-bold text-center">Online Money Transfer service available for you 24x7   </H3>
+</div>
+
+<!-- cards-->
+<div class="container bg-light my-3 p-4 rounded-lg">
+    <h3>Services Offered by Us </h3>
+    <p>We offer the following services to our customers </p>
+    <div class="row">
+        <div class="col-sm-4 "><div class="card bg-dark"><div class="card-body shadow-lg"><p class="text-white lead ">View Customers</p><p class="text-white text-info">View information about all the customers of the Anonymous bank with mailing  and account details</p><form action="cinfo.php" method="post"><button type="submit"  class="btn btn-success">Go <i class="fas fa-arrow-right"></i></button></form></div></div></div>
+        <div class="col-sm-4 "><div class="card bg-dark"><div class="card-body shadow-lg"><p class="text-white lead ">C-To-C Transfer </p><p class="text-white text-info">Stands for Customer-To-Customer Money Transfer , Both customers should be of Same bank </p><form action="transferpage.php" method="post"><button type="submit" class="btn btn-success">Go <i class="fas fa-arrow-right"></i></button></form></div></div></div>
+        <div class="col-sm-4 "><div class="card bg-dark"><div class="card-body shadow-lg"><p class="text-white lead ">View All Transactions</p><p class="text-white text-info">View all the Transactions carried out till now according to the date and time of the transaction .</p><form action="transactionsall.php" method="post"><button type="submit" class="btn btn-success">Go <i class="fas fa-arrow-right"></i></button></form></div></div></div>
+    </div>
+
+</div>
+
+<!-- footer -->
+
+
+
+
+
+
+
+
+</body>
+</html>
