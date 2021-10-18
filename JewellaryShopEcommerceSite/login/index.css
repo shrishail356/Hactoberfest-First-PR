@@ -1,0 +1,71 @@
+*{
+margin: auto;
+}
+
+.container{
+     width: 80%;
+     margin:auto;
+     box-sizing: border-box;
+     text-align: center;
+     padding: 10px;
+     
+}
+input,textarea{
+    width:80%;
+    padding: 9px;
+    margin: 5px;
+    border-radius: 10px;
+    
+}
+#desc{
+    width:80%;
+    border-radius: 10px;
+}
+ #submit{
+    width: 100px;
+    height: 50px;
+    background-color:rgba(240, 245, 240, 0.692);
+    color: rgb(3, 109, 151);
+    border-radius: 10px;
+    font-weight:bold; 
+    font-size:20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+}
+#reset{
+    width: 100px;
+    height: 50px;
+    background-color:rgba(255, 255, 255, 0.685);
+    color: rgb(2, 199, 67);
+    border-radius: 10px; 
+    font-weight:bolder; 
+    font-size:20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+}
+#submit:hover{
+    background-color: transparent;
+    color:black;
+}
+#reset:hover{
+    background-color: transparent;
+    color:black;
+}
+.bg{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    opacity: 80%;
+}
+#msg{
+    color: rgb(46, 216, 46);
+}
+#heading{
+    color:rgb(233, 126, 233);
+     font-size:50px;
+     
+}
+#submsg{
+    color:rgb(82, 245, 82);
+    font-size: 30px;
+    font-style: bolder;
+}
+
