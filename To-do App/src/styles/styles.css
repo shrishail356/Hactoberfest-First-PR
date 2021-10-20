@@ -1,0 +1,39 @@
+.app{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../back.png');
+    background-size: cover;
+    background-position: center;
+    
+
+    
+    }
+    .motivationcard{
+        box-shadow: 10px 10px 10px 2px #010f06;
+        width:45%;
+        height: 35%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        border-radius: 25px;
+        padding: 2%;
+    }
+    .advice{
+        font-family: 'Dancing Script', cursive;
+    
+    }
+    ad{
+        font-size: 10px;
+    
+    }
+    
+    @media only screen and (max-width:1200px){
+        .motivationcard{
+            width: 80%;
+            height: 35%;
+        }
+    }
+    
