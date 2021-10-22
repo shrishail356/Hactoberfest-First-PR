@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<div class="container">
+    <h1 id="title">
+      <center> Student Details Form </center>
+    </h1>
+    <p id="description" >
+      Fill all the details 
+    </p>
+  </div>
+  <br>
+  <br>
+  <form id="survey-form">
+    <label id="name-label" for="name"><b> Your Full Name: <b></label><br><br>
+    <input type="text" name="name" id="name" class="form-control" placeholder="First Name and Last Name" required /> <br>
+    <label id="email-label" for="email"><b> Enter Your Email Address: </b> </label><br><br>
+    <input type="email" name="email" id="email" class="form-control" placeholder="xyz@hotmail.com" required /> <br>
+      <label id ="number-label" for ="number"><b> Enter Your Valid Phone Number: </b> </label><br><br>
+      <input type="number" name="number" class="form-control" placeholder="+91-1234567890" required /> <br>
+      <label id="number-label" for="age"> <b>Age: </b></label><br><br>
+    <input id="number" type="number" class ="form-control" size="6" name="age" min="18" max="99" value="" placeholder="Age" required><br>
+      <label id="gender-type" for ="gender"><b>Gender: </b></label><br>	
+     <select id="dropdown" name="gender" class="form-control" required>
+       <option value="" disabled selected style="display: none;"><center>Choose your Gender</center></option>
+    <option value="Female">Female</option>
+    <option value="Male">Male</option>
+       <option value="not">Prefer Not to say</option> </select><br>
+       <label id="name" for ="positions"> <b> Select Your Position of Interest: </b> </label><br><br>
+       <input id ="interest" name ="" value ="SMH"  type ="checkbox"> 
+      <label for ="interest"> Social Media Handler </label> 
+      <input id ="interest" name ="" value ="Graphic D"  type ="checkbox">
+       <label for ="interest">Graphic Designer </label> 
+      <input id ="interest" name ="" value ="TWt"  type ="checkbox">
+       <label for ="interest"> Technical Writer </label> 
+      <input id ="interest" name ="" value ="Position of Interest"  type ="checkbox">
+       <label for ="interest"> Web Developer </label> 
+      <input id ="interest" name ="" value ="PP"  type ="checkbox">
+       <label for ="interest"> Python Programmer </label> <br>
+      <br>
+      <label id ="period" for ="time"> <b> Time period of Internship: </b> </label> <br><br>
+      <input id="period" name="radio-buttons" value="first" type ="radio">
+      <label for ="period"> 3 months </label> <br>
+      <input id="period" name="radio-buttons" value="second" type ="radio">
+      <label for ="period"> 6 months </label><br> <br>
+      <label id="add-comm"> <b>Why should we hire you? </b></label><br> <br>
+     <textarea type="text" class = "form-control" placeholder="Write atleast 200 words"></textarea><br>
+       
+      <button type="submit" id="submit" class="submit-button">
+          Submit
+        </button>
+      </form>
+       
+       </html>
+       
+
+<!--css file starts from here-->
+<style>
+
+body {
+    background-image: url(https://mcdn.wallpapersafari.com/medium/68/66/PLgQbl.jpg);
+  }
+  .container {
+    width: 700px;
+    max-width: 100%;
+    margin: 25px auto;
+    padding: 20px 12px 10px 20px;
+    background-color: white;
+  }
+  #description {
+    text-align: center;
+  }
+  #survey-form {
+    text-align: center;
+    width: 700px;
+    max-width: 100%;
+    margin: -65px auto;
+    padding: 20px 12px 10px 20px;
+    background-color: #c5c5c5;
+    border: 1px solid;
+  }
+  #name-label {
+    text-align: center;
+  }
+  
+  input {
+    text-align: center;
+    font-family: sans-serif;
+  }
+  .form-control {
+    display: block;
+    width: 100%;
+  }
+  
+  label {
+    font-weight: normal;
+  }
+  textarea {
+    text-align: center;
+  }
+  
+  #submit {
+    background-color: #FFA500;
+  }
+
+</style>
