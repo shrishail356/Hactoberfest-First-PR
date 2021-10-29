@@ -1,0 +1,197 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+    background-color: #FFDEE9;
+background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+
+  }
+  
+  /* Header/Blog Title */
+  .header {
+      display: flex;
+      justify-content: center;
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+  }
+  h2{
+    z-index: 10;
+  }
+  .clippath{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 44vh;
+    clip-path: ellipse(55% 83% at 50% 0%);
+    background-image: radial-gradient( circle farthest-corner at 50% 48%, rgb(103 112 226) 0%, #B5FFFC 62.9% );
+  }
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+        /* float: left; */
+        width: 85%;
+        margin: 38px auto;
+  }
+  .buuble1{
+    position: absolute;
+    z-index: -1;
+    transform: translate(-16vw, 20vw);
+    width: 44vw;
+    height: 44vw;
+    border-radius: 50%;
+    background: linear-gradient(to right, #1F4584, #99F3E2);
+  }
+  .buuble2{
+    position: absolute;
+    z-index: -1;
+    transform: translate(31vw, 11vw);
+    width: 44vw;
+    height: 44vw;
+    border-radius: 50%;
+    background: linear-gradient(163deg, #005AA7, #FFFFAA);
+  }
+  
+  
+  /* Right column */
+  .rightcolumn {
+    width: 100%;
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    /* background-color: #aaa; */
+    /* width: 95%; */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 1vw;
+    margin-bottom: 53px;
+        box-shadow: rgb(255 255 255 / 20%) 0px 0px 0px 1px inset, rgb(0 0 0 / 90%) 0px 0px 0px 1px, rgb(0 0 0 / 25%) 0px 25px 50px -12px;
+  }
+  .card1 {
+    
+    width: 50%;
+    padding: 20px;
+    margin: 57px 1% 0;
+    border-radius: 1vw;
+        box-shadow: rgb(255 255 255 / 20%) 0px 0px 0px 1px inset, rgb(0 0 0 / 90%) 0px 0px 0px 1px, rgb(0 0 0 / 25%) 0px 25px 50px -12px;
+  }
+  .card2 {
+    
+    width: 50%;
+    padding: 20px;
+    margin: 69px auto;
+    margin-right: 1%;
+    border-radius: 1vw;
+        box-shadow: rgb(255 255 255 / 20%) 0px 0px 0px 1px inset, rgb(0 0 0 / 90%) 0px 0px 0px 1px, rgb(0 0 0 / 25%) 0px 25px 50px -12px;
+    /* float: right;*/
+  }
+  .card3 {
+        
+    width: 50%;
+    padding: 20px;
+    margin: 0 1% 36px;
+    border-radius: 1vw;
+        box-shadow: rgb(255 255 255 / 20%) 0px 0px 0px 1px inset, rgb(0 0 0 / 90%) 0px 0px 0px 1px, rgb(0 0 0 / 25%) 0px 25px 50px -12px;
+  }
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    height: 8vw;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .clippath1{
+    position: absolute;
+    width: 100%;
+    height: 34vh;
+    background-image: radial-gradient( circle farthest-corner at 50% 48%, rgb(103 112 226) -21%, #FFDEE9 63.9% );    clip-path: ellipse(53% 86% at 50% 100%);
+  }
+
+  ul{
+       position:reltive;
+       display:flex;
+  }
+  
+  ul li{
+       position:relative;
+       list-style:none;
+       margin:0 20px;
+       cursor:pointer;
+  }
+  
+  ul li a{
+       text-decoration:none;
+  }
+   
+  ul li a .fa{
+       font-size:3em;
+       color:#222;
+  }
+  
+  ul li::before{
+       font-family:fontawesome;
+       position:absolute;
+       top:0;
+       left:0;
+       height:0;
+       overflow:hidden;
+       transition:0.4s ease-in-out;
+       font-size:3em;
+  }
+  
+  
+  ul li:nth-child(1)::before{
+       content:'\f099';
+       color:#1da1f2;
+       border-bottom:4px solid #1da1f2;
+  }
+  
+  ul li:nth-child(2)::before{
+       content:'\f232';
+       color:#25d366;
+       border-bottom:4px solid #25d366;
+  }
+  ul li:nth-child(3)::before{
+       content:'\f16a';
+       color:#ff0000;
+       border-bottom:4px solid #ff0000;
+  }
+  
+  ul li:hover::before{
+       height:100%;
+  }
+  
+
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .fakeimg img{
+    width: 33%;
+    margin: 0 35%;
+    background: #000;
+    border-radius: 1vw;
+    box-shadow: rgb(255 255 255 / 20%) 1px 0px 0px 1px inset, rgb(255 255 255 / 90%) 0px 0px 0px 1px, rgb(255 255 255 / 25%) 0px 25px 50px -12px;
+  }
