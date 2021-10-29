@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Checkout</title>
+</head>
+<script src="js/main.js"></script>
+<script src="js/util.js"></script>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h2 class="text-center">Checkout</h2>
+            <form action="razorpay.php" method="post">
+                <div class="form-group">
+                    <label class="lead" for="">Enter your name :</label>
+                    <input class="form-control" type="text" name="name">
+                    <label class="lead" for="">Enter mail address :</label>
+                    <input class="form-control" type="email" name="email" >
+                    <label class="lead" for="">Enter contact no : </label>
+                    <input class="form-control" type="text" name="phno">
+                    <label class="lead" for="">Enter Cart Amount($) : </label>
+                    <input class="form-control" type="text" name="total"><br>
+                    <div id="checkout"></div>
+                    <center><button class="btn-primary" type="submit" >Proceed to Payment</button></center>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
