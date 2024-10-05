@@ -1,124 +1,88 @@
 let userScore = 0;
-let computerscore = 0;
-const userScore_span = document.getElementById("user-score");
-const computerScore_span = document.getElementById("computer-score");
-const scoreBoard_div = document.querySelector(".score-board");
-const result_p = document.querySelector(".result >p");
+let computerScore = 0;
+
+const userScoreSpan = document.getElementById("user-score");
+const computerScoreSpan = document.getElementById("computer-score");
+const resultP = document.querySelector(".result > p");
 const images = document.querySelector(".choices");
 
-const happy = document.getElementById("win");
-const sad = document.getElementById("lose");
-const ok = document.getElementById("draw");
+const messages = {
+    win: document.getElementById("win"),
+    lose: document.getElementById("lose"),
+    draw: document.getElementById("draw"),
+};
 
-const actionmsg = document.getElementById("action-msg");
+const actionMsg = document.getElementById("action-msg");
 
-const rock = document.getElementById("r");
-const paper = document.getElementById("p");
-const scissor = document.getElementById("s");
+const choices = {
+    rock: document.getElementById("r"),
+    paper: document.getElementById("p"),
+    scissor: document.getElementById("s"),
+};
 
 function getComputerChoice() {
     const choices = ["r", "p", "s"];
-    const randomNum = Math.trunc(Math.random() * 3);
-    return choices[randomNum];
-}
-getComputerChoice();
-
-function word(c) {
-    if (c === "r") return "Rock";
-    if (c === "p") return "Paper";
-    return "Scissors";
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
-happy.classList.add("hidden");
-sad.classList.add("hidden");
-ok.classList.add("hidden");
+function formatChoice(c) {
+    return c === "r" ? "Rock" : c === "p" ? "Paper" : "Scissors";
+}
 
-function win(userChoice, computerChoice) {
-    userScore++;
-    userScore_span.textContent = userScore;
-    computerScore_span.innerHTML = computerscore;
+function updateScore() {
+    userScoreSpan.textContent = userScore;
+    computerScoreSpan.textContent = computerScore;
+}
+
+function showMessage(result, userChoice, computerChoice) {
     const smallU = "user".fontsize(3).sub();
     const smallC = "computer".fontsize(3).sub();
-    result_p.innerHTML =
-        word(userChoice) +
-        smallU +
-        " beats " +
-        word(computerChoice) +
-        smallC +
-        ". You Win!🍧 ";
-    happy.classList.remove("hidden");
-    sad.classList.add("hidden");
-    ok.classList.add("hidden");
-    actionmsg.classList.add("hidden");
-}
+    let message = "";
 
-function lose(userChoice, computerChoice) {
-    computerscore++;
-    userScore_span.textContent = userScore;
-    computerScore_span.innerHTML = computerscore;
-    const smallU = "user".fontsize(3).sub();
-    const smallC = "computer".fontsize(3).sub();
-    console.log("hi");
-    result_p.innerHTML =
-        word(computerChoice) +
-        smallC +
-        " beats " +
-        word(userChoice) +
-        smallU +
-        ". You Lose! 🍼 ";
-    happy.classList.add("hidden");
-    sad.classList.remove("hidden");
-    ok.classList.add("hidden");
-}
+    if (result === "win") {
+        message = `${formatChoice(userChoice)}${smallU} beats ${formatChoice(computerChoice)}${smallC}. You Win!🍧`;
+        messages.win.classList.remove("hidden");
+        messages.lose.classList.add("hidden");
+        messages.draw.classList.add("hidden");
+    } else if (result === "lose") {
+        message = `${formatChoice(computerChoice)}${smallC} beats ${formatChoice(userChoice)}${smallU}. You Lose! 🍼`;
+        messages.win.classList.add("hidden");
+        messages.lose.classList.remove("hidden");
+        messages.draw.classList.add("hidden");
+    } else {
+        message = `${formatChoice(userChoice)}${smallU} equals ${formatChoice(computerChoice)}${smallC}. It's a Draw! 🍭`;
+        messages.win.classList.add("hidden");
+        messages.lose.classList.add("hidden");
+        messages.draw.classList.remove("hidden");
+    }
 
-function draw(userChoice, computerChoice) {
-    const smallU = "user".fontsize(3).sub();
-    const smallC = "computer".fontsize(3).sub();
-    result_p.innerHTML =
-        word(userChoice) +
-        smallU +
-        " equals " +
-        word(computerChoice) +
-        smallC +
-        ". It's a Draw! 🍭 ";
-    happy.classList.add("hidden");
-    sad.classList.add("hidden");
-    ok.classList.remove("hidden");
+    resultP.innerHTML = message;
 }
 
 function game(userChoice) {
     const computerChoice = getComputerChoice();
 
-    switch (userChoice + computerChoice) {
-        case "rs":
-        case "pr":
-        case "sp":
-            win(userChoice, computerChoice);
-            break;
-        case "sr":
-        case "rp":
-        case "ps":
-            lose(userChoice, computerChoice);
-            break;
-        case "rr":
-        case "ss":
-        case "pp":
-            draw(userChoice, computerChoice);
-            break;
+    if (userChoice === computerChoice) {
+        showMessage("draw", userChoice, computerChoice);
+    } else if (
+        (userChoice === "r" && computerChoice === "s") ||
+        (userChoice === "p" && computerChoice === "r") ||
+        (userChoice === "s" && computerChoice === "p")
+    ) {
+        userScore++;
+        updateScore();
+        showMessage("win", userChoice, computerChoice);
+    } else {
+        computerScore++;
+        updateScore();
+        showMessage("lose", userChoice, computerChoice);
     }
 }
 
 function main() {
-    rock.addEventListener("click", function() {
-        game("r");
-    });
-
-    paper.addEventListener("click", function() {
-        game("p");
-    });
-
-    scissor.addEventListener("click", function() {
-        game("s");
+    Object.entries(choices).forEach(([key, element]) => {
+        element.addEventListener("click", () => game(key.charAt(0)));
     });
 }
+
 main();
